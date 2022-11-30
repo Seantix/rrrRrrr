@@ -126,22 +126,5 @@ steps = int(TIME_TO_MODEL / MODEL_DELTA_T)
 for stepn in range(steps):
     u.model_step()
     
-""""
-
-plt.gca().set_aspect('equal')
-
-for b in bodies:
-    # Вот так понятно
-    # t = b.ptrace
-    # xs = [p[0] for p in t]
-    # ys = [p[1] for p in t]
-    # plt.plot(xs, ys)
-    # А так — лихо. Кто объяснит? =)
-    plt.plot(*tuple(map(list, zip(*b.ptrace))))
-
-plt.show();
-
-"""
-
 
 plt_kepler(True)
