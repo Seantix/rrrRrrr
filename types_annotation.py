@@ -1,8 +1,10 @@
-from matplotlib import pyplot as pp
+from matplotlib import pyplot as pp  # type: ignore
 import numpy as np
 
 MODEL_G: float = 9.8
 MODEL_DT: float = 0.1
+
+
 class Body:
     def __init__(self, x: float, y: float, vx: float, vy: float) -> None:
         """
@@ -12,14 +14,14 @@ class Body:
         vx - проекция скорости на Ox
         vy - проекция скорости на Oy
         """
-        
+
         self.x = x
         self.y = y
         self.vx = vx
         self.vy = vy
         self.traj_x: list[float] = []
         self.traj_y: list[float] = []
-    
+
     def advance(self) -> None:
         self.vy -= MODEL_G * MODEL_DT
         self.y += self.vy * MODEL_DT
@@ -43,7 +45,7 @@ class Rocket(Body):
         self.angle: float = np.pi / 4
         self.mass: float = 12500
         self.fuel_cons: int = 127
-        self.fuel_v: int = 2050       
+        self.fuel_v: int = 2050
 
     def advance(self) -> None:
         super().advance()
@@ -54,12 +56,11 @@ class Rocket(Body):
         self.mass -= self.fuel_cons * MODEL_DT
 
 
-
 r: Rocket = Rocket(0, 0, 0, 0)
 b: Body = Body(0, 0, 10, 10)
 
 for bb in [r, b]:
-    for i in np.arange (0, 2, MODEL_DT):
+    for i in np.arange(0, 2, MODEL_DT):
         bb.advance()
     pp.plot(bb.traj_x, bb.traj_y)
 
