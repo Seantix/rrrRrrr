@@ -6,7 +6,7 @@ from typeguard import typechecked
 
 class Fib:
     """По объектам этого класса можно итерироваться
-       и получать 6 чисел Фибоначчи"""
+       и получать числа Фибоначчи"""
 
     class FibIter:
         """Внутренний класс — итератор"""
@@ -14,23 +14,27 @@ class Fib:
         @typechecked
         def __init__(self) -> None:
             self.i: int = 0
-            self.fibs: list[int] = [1, 1]
+            self.prev1 = self.prev2 = 1
 
         @typechecked
         def __next__(self) -> int:
-            self.fibs.append(self.fibs[-1] + self.fibs[-2])
-            j: int = self.i
-            self.i += 1
-            return self.fibs[j]
+            if self.i > 1:
+                self.prev2 += self.prev1
+                self.prev2, self.prev1 = self.prev1, self.prev2
+                self.i += 1
+                return self.prev1
+            else:
+                self.i += 1
+                return 1
 
     def __iter__(self):
         """Создать и вернуть итератор"""
         return Fib.FibIter()
 
 
-f_inf = Fib()
+f_inf: Fib = Fib()
 
-fib_amount = int(input('Введите количество членов последовательности Фибоначчи:'))
+fib_amount: int = int(input('Введите количество членов последовательности Фибоначчи:'))
 assert fib_amount > 0, 'Введите положительное число!'
 
 for i, f in zip(
