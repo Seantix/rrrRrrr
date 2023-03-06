@@ -1,6 +1,6 @@
 # программа решает СЛУ методом Гаусса и выдает решения
 
-from package.gauss import *
+from module.gauss import *
 
 # массивы записываем через array, чтобы numpy был доволен
 
