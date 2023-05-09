@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Материнская плата и системная память
+{% endblock %}
+
+
+{% block content %}
+<div class=text1>
+<h1>Материнская плата и системная память</h1>
+
+<h3>Данные компоненты являются ключевыми в работе компьютера, так как именно они обеспечивают обработку, передачу информации и взаимодействие с другими частями ПК</h3>
+
+<div class=pic>
+    <a href="{{ url_for('static', filename='motherboard/up.jpg') }}"> <img class=pic src="{{ url_for('static', filename='images/motherboard.jpg') }}" width="100%" height="100%" title="Материнская плата с оперативной памятью" alt="Материнская плата с оперативной памятью"> </a>
+</div>
+
+<div class=underpic>Материнская плата с оперативной памятью</div>
+</div>
+
+</div>
+{% endblock %}
+

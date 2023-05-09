@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}" />
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<a name="head"></a>
+<div class=all>
+<div class=top>
+   <table class="head" border="2" cellpadding=10px>
+        <tr class="top">
+            <td colspan="3"><a href="index" class=menu> <div>Материнская плата и системная память</div> </td></a>
+        </tr>
+        <tr class="bottom">
+            <td> <a href="motherboard" class=menu> <div>Материнская плата</div> </a> </td>
+            <td> <a href="sys_memory" class=menu> <div>Системная память</div> </a> </td>
+            <td> <a href="misc" class=menu> <div>Прочее</div> </a></td>
+        </tr>
+    </table>
+</div>
+
+{% block content %}{% endblock %}
+
+
+<div class="arrow_up">
+<a href="#head"><img src="{{ url_for('static', filename='images/up.jpg') }}" width="50" height="50" /></a>
+</div>
+</body>
+</html>
