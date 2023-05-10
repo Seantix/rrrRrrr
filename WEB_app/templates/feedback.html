@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Обратная связь
+{% endblock %}
+
+{% block content %}
+
+<div class="text">
+<form methon="POST">
+  <textarea type="text" name="name" class="form-control" value="Отзыв"></textarea>
+  <input type="submit" class="btn btn-success" value="Отправить">
+
+</form>
+<h2>Ваш отзыв:</h2><br>
+
+{{content}}
+
+
+<h3>Благодарим за отзыв! Он отправлен куда следует, будьте уверены!</h3>
+
+</div>
+
+
+{% endblock %}
