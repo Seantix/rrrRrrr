@@ -25,19 +25,19 @@ def sys_memory():
 @app.route('/feedback', methods=['POST', 'GET'])
 def feedback():
     if flask.request.method == 'POST':
-        name_param=flask.request.form.get('name')
+        review_param=flask.request.form.get('review')
 
     elif flask.request.method == 'GET':
-        name_param=flask.request.args.get('name')
+        review_param=flask.request.args.get('review')
 
 
-    if name_param is None:
-        name_param=""
+    if review_param is None:
+        review_param=""
 
 
     return flask.render_template(
         'feedback.html',
-        content=name_param,
+        content=review_param,
     )
     
 
