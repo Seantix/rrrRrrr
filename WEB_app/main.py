@@ -22,7 +22,24 @@ def motherboard():
 def sys_memory():
     return flask.render_template('sys_memory.html')
 
+@app.route('/feedback', methods=['POST', 'GET'])
+def feedback():
+    if flask.request.method == 'POST':
+        name_param=flask.request.form.get('name')
 
+    elif flask.request.method == 'GET':
+        name_param=flask.request.args.get('name')
+
+
+    if name_param is None:
+        name_param=""
+
+
+    return flask.render_template(
+        'feedback.html',
+        content=name_param,
+    )
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
